@@ -1,0 +1,67 @@
+<div class="container">
+  <div>
+    <h2>Modifier un VideoGame :</h2>
+  </div>
+  <form>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>ID VideoGame</label>
+      <input
+        readonly
+        type="text"
+        [(ngModel)]="currentVideoGame.idVideoGame"
+        name="idVideoGame"
+        class="form-control"
+      />
+    </div>
+
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Nom VideoGame</label>
+      <input
+        type="text"
+        [(ngModel)]="currentVideoGame.nomVideoGame"
+        name="nomvideoGame"
+        class="form-control"
+      />
+    </div>
+
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>Prix VideoGame</label>
+      <input
+        type="number"
+        [(ngModel)]="currentVideoGame.prixVideoGame"
+        name="prixVideoGame"
+        class="form-control"
+      />
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Date création</label>
+      <input
+        type="date"
+        [ngModel]="currentVideoGame.dateCreation | date : 'yyyy-MM-dd'"
+        (ngModelChange)="currentVideoGame.dateCreation = $event"
+        name="dateCreation"
+        class="form-control"
+      />
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label for="">prespective</label>
+      <select
+        class="form-control form-control-lg"
+        id="idPrespective"
+        name="idPrespective"
+        [(ngModel)]="updatedPresId"
+      >
+        <option *ngFor="let pres of prespectives" [value]="pres.idPrespective">
+          {{ pres.nomPrespective }}
+        </option>
+      </select>
+    </div>
+    <div class="mt-2">
+      <button type="submit" (click)="updateVideoGame()" class="btn btn-success">
+        Modifier
+      </button>
+
+      <div></div>
+    </div>
+  </form>
+</div>

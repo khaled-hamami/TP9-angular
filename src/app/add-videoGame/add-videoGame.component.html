@@ -1,0 +1,67 @@
+<div class="container">
+  <div>
+    <h2>Ajouter un VideoGame :</h2>
+  </div>
+  <form>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>ID VideoGame</label>
+      <input
+        type="text"
+        [(ngModel)]="newVideoGame.idVideoGame"
+        name="idVideoGame"
+        class="form-control"
+      />
+    </div>
+
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Nom VideoGame</label>
+      <input
+        type="text"
+        [(ngModel)]="newVideoGame.nomVideoGame"
+        name="nomVideoGame"
+        class="form-control"
+      />
+    </div>
+
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>Prix VideoGame</label>
+      <input
+        type="number"
+        [(ngModel)]="newVideoGame.prixVideoGame"
+        name="prixVideoGame"
+        class="form-control"
+      />
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Date création</label>
+      <input
+        type="date"
+        [(ngModel)]="newVideoGame.dateCreation"
+        name="dateCreation"
+        class="form-control"
+      />
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Prespective</label>
+      <select
+        class="form-control form-control-lg"
+        id="idPrespective"
+        name="idPrespective"
+        [(ngModel)]="newIdPrespective"
+      >
+        <option *ngFor="let pres of prespectives" [value]="pres.idPrespective">
+          {{ pres.nomPrespective }}
+        </option>
+      </select>
+    </div>
+    <div class="mt-2">
+      <button type="submit" (click)="addVideoGame()" class="btn btn-success">
+        Ajouter
+      </button>
+      <!-- <div>
+        <h3>{{ message }}</h3>
+      </div> -->
+      <div></div>
+    </div>
+  </form>
+</div>

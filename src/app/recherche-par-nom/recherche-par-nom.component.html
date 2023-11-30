@@ -1,0 +1,85 @@
+<div class="container">
+  <!-- <form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2 mt-2">
+      <label>Nom Produit</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="nomVideoGame"
+        name="nomProduit"
+        class="form-control"
+      />
+      <button
+        type="submit"
+        (click)="rechercherGames()"
+        class="btn btn-primary mb-2 ml-2"
+      >
+        Rechercher
+      </button>
+    </div>
+  </form> -->
+  <!-- <form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2 mt-2">
+      <label>Nom Produit en tapant</label>
+      <input
+        class="form-control"
+        #searchTerm
+        (keyup)="onKeyUp(searchTerm.value)"
+      />
+    </div>
+  </form> -->
+
+  <form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2 mt-2">
+      <label>Nom Produit en tapant</label>
+      <input
+        #nom
+        [(ngModel)]="searchTerm"
+        name="searchTerm"
+        class="form-control"
+      />
+    </div>
+  </form>
+
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Prix</th>
+            <th>Date Création</th>
+            <th>prespective</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let videoGame of videoGames | serachFilter : searchTerm">
+          <tr>
+            <td>{{ videoGame.idVideoGame }}</td>
+            <td>{{ videoGame.nomVideoGame }}</td>
+            <td>{{ videoGame.prixVideoGame }}</td>
+            <td>{{ videoGame.dateCreation | date : "dd/MM/yyyy" }}</td>
+            <td>{{ videoGame.prespective!.nomPrespective }}</td>
+
+            <!-- <td>
+                <a
+                  *ngIf="authService.isAdmin()"
+                  class="btn btn-danger"
+                  (click)="supprimerVideoGame(videoGame)"
+                  >Supprimer</a
+                >
+              </td>
+              <td>
+                <a
+                  *ngIf="authService.isAdmin() || authService.isAgent()"
+                  class="btn btn-success"
+                  [routerLink]="['/updateVideoGame', videoGame.idVideoGame]"
+                  >Modifier</a
+                >
+              </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

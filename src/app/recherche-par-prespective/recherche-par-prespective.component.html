@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+    <label>Prespectives </label>
+    <select
+      class="form-control form-control-lg"
+      id="idCat"
+      name="idCat"
+      [(ngModel)]="IdPrespective"
+      (change)="onChange()"
+    >
+      <option
+        *ngFor="let pres of prespectives"
+        value="{{ pres.idPrespective }}"
+      >
+        {{ pres.nomPrespective }}
+      </option>
+    </select>
+  </div>
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Prix</th>
+            <th>Date Création</th>
+            <th>prespective</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let videoGame of VideoGames">
+          <tr>
+            <td>{{ videoGame.idVideoGame }}</td>
+            <td>{{ videoGame.nomVideoGame }}</td>
+            <td>{{ videoGame.prixVideoGame }}</td>
+            <td>{{ videoGame.dateCreation | date : "dd/MM/yyyy" }}</td>
+            <td>{{ videoGame.prespective!.nomPrespective }}</td>
+
+            <!-- <td>
+               <a
+                 *ngIf="authService.isAdmin()"
+                 class="btn btn-danger"
+                 (click)="supprimerVideoGame(videoGame)"
+                 >Supprimer</a
+               >
+             </td>
+             <td>
+               <a
+                 *ngIf="authService.isAdmin() || authService.isAgent()"
+                 class="btn btn-success"
+                 [routerLink]="['/updateVideoGame', videoGame.idVideoGame]"
+                 >Modifier</a
+               >
+             </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
